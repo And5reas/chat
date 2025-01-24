@@ -1,4 +1,4 @@
-import 'package:chat/core/services/notification/chat_push_notification_service.dart';
+import 'package:chat/core/services/notification/chat_notification_service.dart';
 import 'package:chat/pages/auth_or_app_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,12 +15,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ChatPushNotificationService()),
+        ChangeNotifierProvider(create: (_) => ChatNotificationService()),
       ],
       child: MaterialApp(
         title: 'Chat Andreas',
         theme: ThemeData(
           appBarTheme: AppBarTheme(
+            iconTheme: IconThemeData(color: Colors.white),
             centerTitle: true,
             backgroundColor: Colors.indigo,
             titleTextStyle: TextStyle(
