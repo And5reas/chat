@@ -58,6 +58,9 @@ class MessageBubble extends StatelessWidget {
               ),
               width: 180,
               child: Column(
+                crossAxisAlignment: isCurrentUser
+                    ? CrossAxisAlignment.end
+                    : CrossAxisAlignment.start,
                 children: [
                   Text(
                     msg.userName,
@@ -67,6 +70,7 @@ class MessageBubble extends StatelessWidget {
                   ),
                   Text(
                     msg.text,
+                    textAlign: isCurrentUser ? TextAlign.right : TextAlign.left,
                     style: TextStyle(
                         color: isCurrentUser ? Colors.white : Colors.black),
                   ),
