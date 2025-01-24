@@ -15,15 +15,16 @@ class MessageBubble extends StatelessWidget {
 
   Widget _showUserImage(String imageUrl) {
     ImageProvider? provider;
+    String defaultImage = 'lib/assets/images/avatar.png';
 
     final uri = Uri.parse(imageUrl);
 
-    if (uri.scheme.contains('http')) {
+    if (uri.path == defaultImage) {
+      provider = AssetImage(defaultImage);
+    } else if (uri.scheme.contains('http')) {
       provider = NetworkImage(uri.toString());
-    } else if (uri.scheme.contains('file')) {
-      provider = FileImage(File(uri.toFilePath()));
     } else {
-      provider = AssetImage(uri.toString());
+      provider = FileImage(File(uri.toFilePath()));
     }
 
     return CircleAvatar(
