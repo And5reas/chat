@@ -35,13 +35,13 @@ class AuthMockService implements AuthService {
     String name,
     String email,
     String password,
-    File image,
+    File? image,
   ) async {
     final newUser = ChatUser(
       id: Random().nextDouble().toString(),
       name: name,
       email: email,
-      imageUrl: image.path,
+      imageUrl: image?.path ?? 'lib/assets/images/avatar.png',
     );
 
     _users.putIfAbsent(email, () => newUser);
