@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
             fontSize: 22,
           ),
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.indigo, secondary: Colors.blue.shade700),
         useMaterial3: true,
       ),
       home: const AuthOrAppPage(),
